@@ -1,0 +1,59 @@
+***************************************
+Cire: An Open-Source Diary Program in C
+
+Copyright (C) 2004, Andrew Morritt, <andymorritt@rogers.com>, et al.
+
+This software is licensed as described in the file COPYING, which
+you should have received as part of this distribution. The terms
+are also available at http://cire.sourceforge.net/license.php
+
+You may opt to use, copy, modify, merge, publish, distribute and/or sell
+copies of the Software, and permit persons to whom the Software is
+furnished to do so, under the terms of the COPYING file.
+
+This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+KIND, either express or implied.
+
+File is a General Cire File. Anyone may commit changes.
+
+$Id: TODO,v 1.43 2004/11/24 02:54:44 andrewm1 Exp $
+***************************************
+
+Cire TODO
+
+General
+=======
+- exporting to various formats:
+	text: done
+	html: Template Sent, Waiting on John
+	sxw: this is going to suck, sort of.  There's meta-data to be
+	     generated, plus we have to be able to transparently zip 5
+	     files, 4 of which aren't really related to the diary
+	     itself.  Probably a post-1.0 thing.
+	rtf: ??
+	TeX / LaTeX: done
+- Signal handling?
+- Better encryption (256 Bit AES, eh, Joe?)
+
+Build
+=====
+- Make --with-debugging add -g to CFLAGS. I added in a --with-debugging statement
+	that will make build_debug true or false, but I need code to act on the build_debug
+	variable in configure.ac
+
+
+Ncurses
+=======
+- More testing
+- Tab completion (Ian suggested looking into 'readline' for this)
+- Entry Viewer:
+	- Allow Page up, Page down, Home, End
+
+GTK
+===
+- Status bar?
+- Search: core support is in place, just need to add gtk specific stuff.
+
+Core (diary, entry, prefs)
+====
+-

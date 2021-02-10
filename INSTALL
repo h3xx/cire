@@ -1,0 +1,42 @@
+***************************************
+Cire: An Open-Source Diary Program in C
+
+Copyright (C) 2004, Andrew Morritt, <andymorritt@rogers.com>, et al.
+
+This software is licensed as described in the file COPYING, which
+you should have received as part of this distribution. The terms
+are also available at http://cire.sourceforge.net/license.php
+
+You may opt to use, copy, modify, merge, publish, distribute and/or sell
+copies of the Software, and permit persons to whom the Software is
+furnished to do so, under the terms of the COPYING file.
+
+This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+KIND, either express or implied.
+
+File is Managed by Andrew Morritt (andrewm1). Get Permission Before Commiting.
+
+$Id: INSTALL,v 1.8 2004/11/24 02:54:44 andrewm1 Exp $
+***************************************
+
+Installing Cire: 
+
+1: Configure: 
+
+	To Configure, type './configure <options>'. The Options are as follows:
+
+		--with-gtk-ui=<yes/no>
+			Controls Whether the GTK UI Is Built. Default: Yes
+
+		--with-ncurses-ui=<yes/no> 
+			Controls Whether the Ncurses UI Is Built. Default: Yes
+
+		--with-text-ui=<yes/no>
+			Controls Whether the Text UI Is Built. Default: No
+
+2: Make:
+	
+	To Make, simply type 'make'
+
+That's It. It will generate an Executable called cire, which you can do
+whatever you want with.

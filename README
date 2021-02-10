@@ -1,0 +1,79 @@
+***************************************
+Cire: An Open-Source Diary Program in C
+
+Copyright (C) 2004, Andrew Morritt, <andymorritt@rogers.com>, et al.
+
+This software is licensed as described in the file COPYING, which
+you should have received as part of this distribution. The terms
+are also available at http://cire.sourceforge.net/license.php
+
+You may opt to use, copy, modify, merge, publish, distribute and/or sell
+copies of the Software, and permit persons to whom the Software is
+furnished to do so, under the terms of the COPYING file.
+
+This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+KIND, either express or implied.
+
+File is Managed by Andrew Morritt (andrewm1). Get Permission Before Commiting.
+
+$Id: README,v 1.15 2004/11/24 02:54:44 andrewm1 Exp $
+***************************************
+
+Contents:
+
+	1: Compilation & Installation 
+
+	2: Use:
+
+	3: The Cire Project:
+
+	4: Tips:
+
+	5: Known Issues:
+	
+	6: Contributors & Contributing:
+
+	7: ChangeLog
+	
+	8: Legalese
+
+***************************
+
+1: Compilation & Installation:
+	See the file INSTALL
+
+2: Use: 
+
+	Start Cire with the UI of your choice. Use Cire. It's that simple!
+	
+	You can use:
+	
+	'cire -g <diary filename>' to Start GTK Interface,
+	'cire -n <diary filename>' to Start Ncurses Interface,
+	'cire -t <diary filename>' to Start Text Interface,
+
+3: The Cire Project:
+
+	The Cire Project can be contacted at http://cire.sf.net
+	The Dev Home is at http://sf.net/projects/cire/
+
+4: Tips:
+	* None Right Now
+
+5: Known Issues:
+	See the file TODO
+	
+6: Contributors & Contributing:
+	A List of contributors is avaliable in the file CREDITS.
+
+	Information on how to Contribute is Avaliable in the 
+	file HACKING.
+
+7: ChangeLog:
+	See the file CHANGES
+
+8: Legalese:
+	The License Governing The Distribution and Use of 
+	Cire is available in the file COPYING
+
+Thank You For Using Cire!

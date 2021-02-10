@@ -1,0 +1,1688 @@
+***************************************
+Cire: An Open-Source Diary Program in C
+
+Copyright (C) 2004, Andrew Morritt, <andymorritt@rogers.com>, et al.
+
+This software is licensed as described in the file COPYING, which
+you should have received as part of this distribution. The terms
+are also available at http://cire.sourceforge.net/license.php
+
+You may opt to use, copy, modify, merge, publish, distribute and/or sell
+copies of the Software, and permit persons to whom the Software is
+furnished to do so, under the terms of the COPYING file.
+
+This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+KIND, either express or implied.
+
+File is Managed by Andrew Morritt (andrewm1). Get Permission Before Commiting.
+
+$Id: CHANGES,v 1.12 2004/11/24 02:54:43 andrewm1 Exp $
+***************************************
+
+Cire Version 0.14.0:
+
+	2004-10-16 17:07  thestarz
+
+		* Makefile.am: Andrew put a list of all source files in
+		  /Makefile.am as well as /src/Makefile.am. I've fixed this.
+
+	2004-10-14 19:40  andrewm1
+
+		* README: Removed Periods from End of URL's
+
+	2004-10-14 15:39  andrewm1
+
+		* CREDITS, HACKING, README, TODO, configure.ac: - Added Tom Davis
+		  To CREDITS
+
+		  - Updated HACKING for new Autotools Stuff
+
+		  - README *really* needed updating
+
+		  - Added some Template stuff for a --with-debugging in
+		  configure.ac,     see TODO for more intop. If it gets in, I'll
+		  add the option to the list	     in INSTALL.
+
+		  - To Conform with Automake, I was considering asking the SF
+		  People to   rename CHANGES to ChangeLog and CREDITS to AUTHORS,
+		  what	      do other people think?
+
+	2004-10-14 11:19  andrewm1
+
+		* CHANGES, COPYING, CREDITS, HACKING, INSTALL, Makefile.am, README,
+		  TODO, autogen.sh, configure.ac, src/Makefile.am, src/diary.c,
+		  src/diary.h, src/entry.c, src/entry.h, src/gtk_ui_callbacks.c,
+		  src/gtk_ui_callbacks.h, src/gtk_ui_main.c, src/gtk_ui_main.h,
+		  src/gtk_ui_other.c, src/gtk_ui_other.h, src/main.c, src/main.h,
+		  src/misc.c, src/misc.h, src/ncurses_ui.c, src/ncurses_ui.h,
+		  src/prefs.c, src/prefs.h, src/text_ui.c, src/text_ui.h: New
+		  Copyright Message, Cause that's what I do Best! :-)
+
+	2004-10-13 17:54  andrewm1
+
+		* CHANGES, COPYING, CREDITS, HACKING, INSTALL, Makefile.am, README,
+		  TODO, autogen.sh, build.pl, configure.ac, src/Makefile.am,
+		  src/diary.c, src/diary.h, src/entry.c, src/entry.h,
+		  src/gtk_ui_callbacks.c, src/gtk_ui_callbacks.h,
+		  src/gtk_ui_main.c, src/gtk_ui_main.h, src/gtk_ui_other.c,
+		  src/gtk_ui_other.h, src/main.c, src/main.h, src/misc.c,
+		  src/misc.h, src/ncurses_ui.c, src/ncurses_ui.h, src/prefs.c,
+		  src/prefs.h, src/text_ui.c, src/text_ui.h: Big, BIG CHANGES!!!
+
+		  First of All, I added in the Autotools system by John. This, in
+		  essence, has completely reorganized the code and made the
+		  intallation much nicer.
+
+		  Also, I added Id Tags to all files... Hopefully, it shall all
+		  work :-)
+
+		  I think we have enough changes in here for the next version...
+		  Perhaps... Ah well, we'll discuss it.
+
+	2004-04-21 20:05  thestarz
+
+		* src/: gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_main.h, gtk_ui_other.c, gtk_ui_other.h: Applied Tom's
+		  patch adding search support to the gtk interface. Sorry it took
+		  so long, I kind forgot about it...
+
+	2004-04-15 21:06  andrewm1
+
+		* CREDITS:
+
+		  New Credits Format!
+
+	2004-04-14 12:59  thestarz
+
+		* TODO, src/misc.c, src/misc.h, src/ncurses_ui.c: Search is now not
+		  case sensetive. For some reason though, searching for a string of
+		  less than four characters doesn't seem to work. If anybody can
+		  figure out why, let me know.
+
+			  John
+
+	2004-04-13 12:55  thestarz
+
+		* TODO, src/diary.c, src/diary.h, src/ncurses_ui.c,
+		  src/ncurses_ui.h: Applied Ian's patch for exporting to LaTeX.
+		  Good code Ian, however in some places you had spaces instead of
+		  tabs for indentation. Try to avoid that ;)
+
+			  John
+
+	2004-04-12 19:37  thestarz
+
+		* TODO, src/ncurses_ui.c: The search prompt in the text viewer no
+		  longer displays the list of entries instead of the text being
+		  view. I changed nci_get_user_text to not update the main part of
+		  the screen any more. This, however, led to the problem of the
+		  screen being messed up if the term is resized while a text prompt
+		  is open. To solve this I made it clear the main part of the
+		  screen if, and only if, the term is resized.
+
+		  I also made some changed to TODO. Take a look.
+
+			  John
+
+	2004-04-11 20:00  thestarz
+
+		* TODO, src/ncurses_ui.c: Added search support to the ncurses text
+		  (entry) viewer.
+
+			  John
+
+	2004-04-11 12:53  thestarz
+
+		* src/: diary.c, entry.c, main.c, main.h, misc.c, ncurses_ui.c,
+		  ncurses_ui.h: Changed the method used by the core code to report
+		  errors.
+
+		  Previously when something went wrong, an error message was
+		  printed to stderr. However with the gtk interface this would
+		  never be seen and with the ncurses interface it messed up the
+		  screen.
+
+		  Now the error message is placed in the global variable char*
+		  errmsg. Then the interface (ncurses / gtk) can display it in the
+		  appropriate way (in the footer area or in a pop up dialog).
+
+		  I also created a new function for the ncurses interface:
+		  nci_press_any_key.  It takes a message which it prints to the
+		  footer area followed by "Press any key to continue." and waits
+		  for a key press before returning. The ncurses interface now uses
+		  this with errmsg to tell the user what went if the core code
+		  returns an error code.
+
+			  John
+
+	2004-04-10 17:47  thestarz
+
+		* src/ncurses_ui.c: Fixed a bug in the code for getting text from
+		  the user using the footer area. Previously it would segfault if
+		  you enlarged your terminal after getting to that prompt and then
+		  typing a lot of text into it.
+
+			  John
+
+	2004-04-10 15:40  thestarz
+
+		* TODO, src/ncurses_ui.c: Page up and page down now scroll the list
+		  of entries up or down one page.
+
+			  John
+
+	2004-04-09 19:12  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Added the following
+		  global key strokes for the ncurses interface:
+
+			  Insert - Add an entry
+			  Delete - Delete an entry
+			  Home - Select first entry
+			  End - Select last entry
+
+		  Page up and page down need to be done as well now.
+
+			  John
+
+	2004-04-09 16:01  thestarz
+
+		* TODO, src/gtk_ui_main.c, src/main.c, src/main.h,
+		  src/ncurses_ui.c, src/ncurses_ui.h: Implemented Joe's suggestion
+		  and made the function for viewing entries into a generic function
+		  for viewing arbitrary text. Now help->about can use it for the
+		  about message as well.
+
+		  Straightened out the key bindings for the gtk interface so that
+		  we no longer conflict with select all. I can't seem to find a
+		  stock item for help->about, though I've seen other apps use it.
+
+		  The about message is now stored in a global variable, instead of
+		  a #define so that it's not duplicated in each file that uses it.
+		  CIRE_ABOUT_MESSAGE is now #defineD to point to the new variable.
+
+			  John
+
+	2004-04-07 11:12  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Key strokes that are
+		  valid in all menus are now handled by nci_global_key_handler()
+		  rather than having duplicate caseS call over the place.
+
+			  John
+
+	2004-04-06 21:07  deadalien
+
+		* src/text_ui.c: fixed build warnings
+
+	2004-04-06 18:51  thestarz
+
+		* build.pl: Added uninstall to the build script. Also added
+		  --prefix=foo to specify the installation prefix.
+
+			  John
+
+	2004-04-05 17:34  thestarz
+
+		* TODO, src/diary.c, src/diary.h, src/entry.c, src/entry.h,
+		  src/misc.c, src/misc.h, src/ncurses_ui.c, src/ncurses_ui.h:
+		  Search support. You can now search by either title or contents
+		  using the ncurses interface. Gtk support needs to be done now;
+		  any volunteers?
+
+			  John
+
+	2004-04-04 15:25  thestarz
+
+		* src/: ncurses_ui.c, ncurses_ui.h: Changed the ncurses interface
+		  to use the new html export code, with header and footer support.
+
+			  John
+
+	2004-04-03 16:35  thestarz
+
+		* src/: diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_callbacks.h,
+		  gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.h: Added the patch
+		  from Tom Davis and made a few change to it.
+
+		  Thanks, Tom. :-)
+
+			  John
+
+	2004-04-03 14:42  deadalien
+
+		* src/prefs.c: Added end-slash checking for cire_dir
+
+	2004-04-03 14:14  joeabbey
+
+		* src/ncurses_ui.c: Resolved Random Floating Point error issue.
+
+		  joe
+
+	2004-04-03 13:15  deadalien
+
+		* src/prefs.c:
+		  I added the parsing routines to detect ~ in prefs
+
+	2004-04-03 12:52  thestarz
+
+		* TODO, src/ncurses_ui.c: The header now indicates what sorting
+		  method is being used.
+
+			  John
+
+	2004-04-03 12:03  thestarz
+
+		* build.pl, src/ncurses_ui.c, src/ncurses_ui.h: Made some changes
+		  to Joe's ncurses prefs code. The main one being that the elements
+		  / widgets used are no longer global.
+
+			  John
+
+	2004-04-03 02:27  joeabbey
+
+		* src/ncurses_ui.c: Great.. I can't sleep.
+
+		  As I was trying to doze off, I was thinking about the code.. yeah
+		  sick?  Anyway realized that I wasn't finding the correct position
+		  when viewing.. I fixed it.  Should work better/fine now.
+
+		  Joe
+
+	2004-04-03 01:33  joeabbey
+
+		* TODO: Whoops.. forgot to close emacs.. here's my changes to TODO.
+
+		  It's basically removed Tools-Preferences, and suggested that we
+		  change the function view, so that it's more useful.. or at least
+		  break it apart so we can use it to scroll the about message, or
+		  even have online documentation.
+
+	2004-04-03 01:28  joeabbey
+
+		* build.pl, src/main.h, src/ncurses_ui.c, src/ncurses_ui.h,
+		  src/prefs.c, src/prefs.h: Lots of changes:
+
+		  I'll try to list them all.
+
+		  Prefs: Ian, I apologize about changing prefs, but I can
+		  guarantee, I affected you code in no way, in fact I made it
+		  better.  Previously your enum was in the .c file. So only your
+		  source could access the enum.  I moved it to the .h file and this
+		  caused no conflicts.
+
+		  Main.h: With -Wall the compiler was griping about the close
+		  function being an implicit declaration.  So I #included
+		  <unistd.h> in main.h.  This cleared up this warning.
+
+		  Build.pl: I didn't like how $cc had become gcc -Wall, so I added
+		  $opts and also included -O3, this should add some more warnings,
+		  but are pretty quick to clear up.  For example int the nci_sort
+		  function it was griping about timestamp not being intialized.  So
+		  the declaration is now int timestamp=0;
+
+		  Ncurses: Added a struct called options that contains a name,
+		  which is used to named the stored value "buffer", and index is
+		  the strlen(buffer).
+
+		  This should make it easy to add preferences in the future, as
+		  they are accessible by an array.  Just walk through with a for
+		  loop.
+
+		  Added functions to take care of the creating and destroying of
+		  the options struct.
+
+		  Added nci_tools_prefs, this takes care of the assigning/editing
+		  of preference sduring runtime.  Any suggestions to optimize this
+		  would be appreciated, as well as any style issues.
+
+		  An issue I found was that ESC (at least in my terminal) takes
+		  about a sec to parse, but F1 and most other keys are nearly
+		  instantaneous.  Noticed this multiple times.	ESC in any menu
+		  takes a bit.	I dunno if we're using the wrong #define, or what
+		  but we should really try to find out.
+
+		  Changed the footer of entry_view. To the following:
+
+		  Line x of total - Percent%
+
+		  If there were any other changes I made.. I can't think of them.
+
+		  So I'll be looking forward to the new additions/mods soon!
+
+		  Good night!
+
+		  Joe
+
+	2004-04-02 12:25  thestarz
+
+		* src/: diary.c, diary.h, entry.c, entry.h: Did some work on search
+		  support in the diary and entry modules. Look at my comments (and
+		  code) to see what I did.
+
+			  John
+
+	2004-04-02 11:13  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Added sort support to
+		  the ncurses interface. I'd like to have the header (top line)
+		  indicate how the diary is being sorted. Any thoughts on how it
+		  should look?
+
+			  John
+
+	2004-04-02 08:25  joeabbey
+
+		* src/: diary.c, diary.h: No changes to misc.h.. oops.. I put the
+		  search_by_title function in there first and realized it was out
+		  of place.  I've not tested it yet but it's pretty simple so if it
+		  requires any editing, please feel free.
+
+		  Basically it works like this:
+
+		  Me: I want to search for ab,
+
+		  Cire: program calls Cire: diary_search_by_title(diary, "ab", 0)
+		  Cire: returns first occurence.
+
+		  Me: I will tell my ui no thats not it
+
+		  Cire: diary_search_by_title(diary, "ab", occurence++)
+
+		  This will also resolve the issue with sorting in Ncurses.  Here's
+		  the basic algorithm I was considering:
+
+		  sort search for previously pointed to update
+
+		  Easy enough eh?
+
+		  Now we can also add searching to our toolkit of toys!
+
+		  Anywho, I'll try to start integrating it, if someone hasn't by
+		  the time I'm done at work today.
+
+		  Joe
+
+	2004-04-01 19:48  thestarz
+
+		* build.pl, src/diary.c, src/gtk_ui_main.c, src/ncurses_ui.c:
+		  Changed the build script to use -Wall and fixed a couple of the
+		  warnings it gave.
+
+			  perl_junkie
+
+	2004-04-01 17:08  thestarz
+
+		* TODO, src/ncurses_ui.c: The ncurses ui now displays entries
+		  itself instead of using less.
+
+		  *** John
+
+	2004-04-01 11:38  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Improved
+		  nci_update_screen() a bit. It now truncates large entry titles.
+
+		  *** John
+
+	2004-03-31 19:25  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Fixed
+		  nci_get_user_text() so that backspace works when used in an
+		  aterm.  Also fixed it so that it doesn't fuck up when you resize
+		  said term.
+
+		  *** John
+
+	2004-03-31 18:30  joeabbey
+
+		* src/ncurses_ui.h: Didn't need these anymore..
+
+		  Instead using the ncurses defines for keys..
+
+	2004-03-31 18:22  joeabbey
+
+		* TODO: Sorting should be handled by the core files not by the
+		  uis.. then the diary that is accessed will reflect the sorted
+		  changes
+
+	2004-03-31 18:20  joeabbey
+
+		* src/: ncurses_ui.c, ncurses_ui.h: Now get user text allows for
+		  deletion..
+
+	2004-03-31 17:52  joeabbey
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Scrolling now works
+		  like typical scrollers do.
+
+		  Enjoy
+
+	2004-03-31 17:22  joeabbey
+
+		* src/ncurses_ui.c: Added basic scrolling for the ui.. hope to make
+		  it better next commit
+
+	2004-03-31 15:21  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Added export support to
+		  ncurses.
+
+		  *** John
+
+	2004-03-31 14:37  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: You can now specify a
+		  filename on the commandline for ncurses to use, eg: $ cire -n
+		  foobar.cire
+
+		  *** John
+
+	2004-03-31 11:55  thestarz
+
+		* TODO, src/misc.c, src/ncurses_ui.c: The ncurses ui now knows
+		  about the ~ character and it forces .cire unless the filename
+		  without the .cire already exists.
+
+		  Also fixed misc_interpolate_filename().
+
+		  *** John
+
+	2004-03-30 18:47  thestarz
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Implemented
+		  help->about.
+
+		  Also changed it so that stuff on the bottum lines is always
+		  indented two spaces just like the top line.
+
+		  *** John
+
+	2004-03-30 13:59  joeabbey
+
+		* TODO, build.pl, src/main.h, src/misc.c, src/misc.h,
+		  src/ncurses_ui.c, src/ncurses_ui.h: Applied John's patch
+
+		  Looked fine to me..
+
+		  Unfortunately though, this means all of my work is for naught.
+
+		  I suppose I'll still try to submit updates for the ui using the
+		  new design or perhaps work on a more robust encryption scheme..
+
+		  Anyway the code is cleaner and more robust
+
+		  joe
+
+	2004-03-28 14:41  joeabbey
+
+		* TODO, src/ncurses_ui.c, src/ncurses_ui.h: Some nice changes:
+
+		  Fixed my .emacs so that it goes tabstop to tabstop inserting tabs
+		  now and not spaces.  I still have to do some work to get this
+		  perfect, but now the display of the code should be editor
+		  dependent and not the way I had it looking.  So yay tabs.
+
+		  Did some tweaking, Created a new function called wipe that clears
+		  the cire area.  Getting closer to a 1.0 release here.  Just need
+		  to enable the Tools menu.. really to allow for this.	Then
+		  subsequent changes/bug testing should be included in 1.x.x
+		  releases.
+
+		  Still need alot of beautification of my code.  Its dirty but it
+		  does its job.. if you don't try anything extreme/out of the
+		  ordinary.
+
+		  Also, My buffer overflow protection doesn't allow users active
+		  feedback... so I'd suggest we change it to John's beeping
+		  config.. I'll have to try to get that back in there.	Or maybe he
+		  can :)
+
+		  Alrighty thats about it for now...
+
+		  Joe
+
+	2004-03-27 17:04  joeabbey
+
+		* src/ncurses_ui.c: After MUCH head banging.. discovered the
+		  fundamental difference between file descriptors and FILE streams.
+		   Ah, learning is fun.
+
+		  closing the fd that mkstemp creates prevents possible problems.
+		  If I ever get around to writing a cire ncurses viewer.. we'll get
+		  to change this in some cases.
+
+		  Anyway.. a great example at what RTFMing can do for YOU
+
+		  joe
+
+	2004-03-27 15:21  joeabbey
+
+		* src/: ncurses_ui.c, ncurses_ui.h: Applied another one of John's
+		  patches
+
+		  Made some modification.  Didn't like the temp file being
+		  generated from the title of the entry.. Since users like to put
+		  spaces in their titles (I did) attempting to open them without
+		  escaping the spaces will cause fireworks for some systems.  It
+		  created the file easy enough but opening it didn't seem to work.
+
+		  Instead I'm using mkstemp :-) with the template of
+		  /tmp/cire-XXXXXX.  This provides a unique file and "guarantees"
+		  it will open a new file!
+
+		  Enjoy.  I'm getting the programming bug again so I should be back
+		  and committing more often than biweekly.. we'll see.
+
+		  Laters Joe
+
+	2004-03-27 14:50  thestarz
+
+		* src/: misc.c, misc.h: Added a function in misc.c to turn a
+		  filename containing a ~ into an absolute filename.
+
+		  *** John
+
+	2004-03-26 12:17  thestarz
+
+		* src/: gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_main.h: Commiting Ian's patch to make Cire's gtk ui use
+		  stock icons and the gtk item factory. Thanks, Ian!
+
+		  ~ john
+
+	2004-03-25 20:53  joeabbey
+
+		* src/: ncurses_ui.c, ncurses_ui.h: A basic fix... Now upon
+		  entering Cire.. Untitled IS printed.. and opening or saving as
+		  updates the header and footer
+
+		  Yay, I finally posted a commit again
+
+	2004-03-25 12:47  thestarz
+
+		* build.pl, src/ncurses_ui.c, src/ncurses_ui.h: Joe has given me
+		  permission to commit the work I've done on ncurses, so here it
+		  is.
+
+		  Cire can now be built with the ncurses ui enabled again. :-)
+
+		  ~ john
+
+	2004-03-24 20:22  deadalien
+
+		* TODO: added a note about the open office format and it probably
+		  being a post-1.0 feature
+
+	2004-03-24 19:17  deadalien
+
+		* src/prefs.c: committed John's patch
+
+	2004-03-22 07:41  deadalien
+
+		* src/prefs.h: removed #define for the prefs_save function
+
+	2004-03-21 15:56  andrewm1
+
+		* CHANGES:
+
+		  Quick Change to Changelog
+
+Cire Version 0.13.0:
+
+	2004-03-21 15:51  andrewm1
+
+		* CHANGES, HACKING, INSTALL, README, main.h:
+
+		  0.13: Released! I used the cvs2cl.pl script to create a New
+		  Changelog, and I applied John's Doc Patch.
+
+	2004-03-20 21:39  thestarz
+
+		* TODO, diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_main.c,
+		  main.h, misc.c, misc.h, text_ui.c: Ok, here's the new crypt code.
+		  See my last email to the list for more info.
+
+		  NOTE: Ian has given me permission to modify text_ui.c
+
+		  ~john
+
+	2004-03-20 16:34  thestarz
+
+		* gtk_ui_main.c, gtk_ui_other.c, gtk_ui_other.h: The gtk interface
+		  can now be given a filename on the command line to open, eg: cire
+		  foobar.cire
+
+		  Ian: I changed prefs_save_to_file() to prefs_save() in the gtk
+		  code so you can remove your backwards-compatability-#define now.
+
+		  ~john
+
+	2004-03-20 11:47  thestarz
+
+		* TODO, gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c:
+		  Right clicking on an entry now gives you a popup menu with 'Add',
+		  'Delete' and 'Rename'.
+
+		  ~john
+
+	2004-03-19 20:27  thestarz
+
+		* misc.h, misc.c: Added function to copy one string into another
+		  string, since it seems to be something we do a lot. ;-)
+
+		  ~john
+
+	2004-03-18 12:50  thestarz
+
+		* TODO, gtk_ui_callbacks.c: You can now specify a password in the
+		  save as dialog in the gtk ui.
+
+		  ~john
+
+	2004-03-17 19:17  deadalien
+
+		* text_ui.c: Applied tac's quitting patch.
+
+	2004-03-14 14:49  deadalien
+
+		* prefs.c, prefs.h, text_ui.c:
+		  added 'const char * prefs_get_argv_file()' text_ui can now use it
+		  to open a file on the command line
+
+		  e.g.: ./cire -t ~/doc/my_diary
+
+	2004-03-14 13:09  thestarz
+
+		* TODO, diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_callbacks.h,
+		  gtk_ui_other.c, gtk_ui_other.h, misc.c, misc.h: The gtk ui now
+		  asks before overwriting a file both for ordinary save-as and for
+		  when you do an export. Also it only adds an extension to the
+		  filename if the filename without the extension does not exist,
+		  otherwise it leaves it with no extension.
+
+		  The export functions in diary no longer add a file extension.
+		  This is so the user can save over an existing file that doesn't
+		  have an extension.  See above.
+
+		  ~john
+
+	2004-03-13 20:53  thestarz
+
+		* misc.c, misc.h: Added function misc_file_exists() to determine if
+		  a file exists. Will be used to prompt the user before overwriting
+		  an existing file by the gtk user interface.
+
+		  ~john
+
+	2004-03-13 18:42  thestarz
+
+		* TODO: Took install support in the build script out of `TODO`.
+
+		  ~john
+
+	2004-03-13 18:37  thestarz
+
+		* build.pl: Added install code to the build script.
+
+		  ~john
+
+	2004-03-13 17:54  thestarz
+
+		* diary.c: Fixed sort-by-title. Thanks to Ian for figuring out what
+		  was wrong.
+
+		  ~john
+
+	2004-03-13 15:16  thestarz
+
+		* TODO, gtk_ui_callbacks.c, gtk_ui_main.c, gtk_ui_main.h,
+		  gtk_ui_other.c, misc.c, misc.h: Added Ian's patch to display the
+		  current entry's title above the text view.  Also made my own
+		  modification so that long titles get truncated before being
+		  placed in the label.
+
+		  Thanks Ian.
+
+		  ~john
+
+	2004-03-12 18:21  deadalien
+
+		* text_ui.c: oops...
+
+	2004-03-12 18:18  deadalien
+
+		* text_ui.c:
+		  regarding "TAC()"s email about an entry pointer that still
+		  pointed to a deleted entry, i fixed it.
+
+		  he/she/it proposed setting it to the first entry, whereas i
+		  simply set both the pointer and the offset to the values they're
+		  at when an entry has not been selected.
+
+	2004-03-12 11:36  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.c,
+		  gtk_ui_other.h: Added to the gtk ui the ability to open an
+		  encrypted diary and save it again.  Saving a new file or saving
+		  an old one under a new name using encryption is not implemented
+		  yet.
+
+	2004-03-11 13:38  thestarz
+
+		* build.pl, diary.c, diary.h: Added a function to determine whether
+		  a file is encrypted. UIs should use this to know whether they
+		  should prompt for a password when opening a file.
+
+		  Improved the build script. It should know correctly determine
+		  which files should be recompiled.
+
+	2004-03-10 23:21  deadalien
+
+		* build.pl, text_ui.c: diary_save_to_file code changed, uses NULL
+		  for key
+
+	2004-03-10 12:33  thestarz
+
+		* build.pl, diary.c, diary.h, gtk_ui_callbacks.c, misc.h: I've done
+		  some more work on encryption support. Unfortunately I've had to
+		  modify another function signature. :-( This time it's
+		  diary_save_to_file(), it now takes a *key as well.
+
+		  This should be the last signature change however, and (assuming I
+		  didn't make any mistakes) core support for encryption is now
+		  complete. Once the interfaces have been updated to use it we'll
+		  be able to encrypt diaries! :-)
+
+		  Just like last time I've commented Ian and Joe's interfaces out
+		  of the build script, once you guys have updated your code, remove
+		  the comments. Same lines as last time.
+
+		  ~John
+
+	2004-03-09 21:26  deadalien
+
+		* text_ui.c: stopped pointlessly trying to free an entry
+
+	2004-03-09 20:58  deadalien
+
+		* text_ui.c:
+		  free the PROMPT string on cleanup, in case it's what was causing
+		  john's error.
+
+	2004-03-09 20:38  deadalien
+
+		* build.pl, text_ui.c: Incorporated john's changes
+
+	2004-03-09 20:31  thestarz
+
+		* build.pl, diary.c, diary.h, gtk_ui_callbacks.c, misc.c, misc.h:
+		  I've done some more work on encryption support. Unfortunately
+		  I've had to change the signature of diary_load_from_file(). It is
+		  now:
+
+		  int diary_load_from_file(struct diary* obj, const char* file,
+		  const char* key); /* This loads the diary stored in *file into
+		  the specified file  * into *obj, replacing the current contents.
+		  If key is non-null  * the file's contents are unencrypted using
+		  *key before being  * parsed. Returns 0 on success.  */
+
+		  This breaks the text and ncurses interfaces. I've changed the
+		  build script to leave them out until Joe and Ian can update their
+		  code.
+
+		  Joe: Once you've updated your code please uncomment lines 123 and
+		  192.	Ian: Once you've updated your code please uncomment line
+		  193.
+
+		  Interface code should pass NULL for the key until encryption
+		  support is done.
+
+	2004-03-07 11:14  thestarz
+
+		* TODO, build.pl, diary.c, diary.h, main.h, misc.c, misc.h: Created
+		  misc.[c,h] to hold functions that aren't tied to any module.
+
+		  Moved the functions for removing newlines from a string, from
+		  diary.* to misc.*
+
+		  Added the function misc_crypt() to misc.* it will encrypt/decript
+		  a given section of memory with a given key, by XORing the data
+		  with the key. Thanks to Joe, for helping me come up with this
+		  encryption method.
+
+		  All of this is geared towards adding support for encrypted
+		  diaries.
+
+			  John
+
+	2004-03-06 18:37  thestarz
+
+		* TODO, diary.c, diary.h: The diary module now keeps track of the
+		  number of entries it contains, instead of counting them each time
+		  diary_get_entry_count() is called.
+
+		  Thanks to Joe, for suggesting this change.
+
+	2004-03-05 15:34  joeabbey
+
+		* TODO: made my additions
+
+	2004-03-05 12:56  deadalien
+
+		* text_ui.c:
+		  fixed a build warning
+
+	2004-03-05 11:19  thestarz
+
+		* gtk_ui_callbacks.c: Fixed one of the warnings in the build
+		  process.
+
+	2004-03-05 11:14  thestarz
+
+		* diary.c, diary.h: diary_export_html() now adds .html if
+		  necessary.
+
+	2004-03-05 11:00  thestarz
+
+		* TODO, diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_callbacks.h,
+		  gtk_ui_main.c, gtk_ui_main.h: Added diary_export_text() to export
+		  to plain text. It automatically adds .txt if necessary.  Added a
+		  menu item in the gtk ui to export to text.
+
+	2004-03-04 23:55  joeabbey
+
+		* ncurses_ui.c: Just a little addition..  needed to kill /tmp/.cire
+		  upon entry.. in case there was a stray one
+
+	2004-03-04 23:47  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: Alrighty...
+
+		  Added functions:
+
+		  New Diary Save As Edit Delete Rename
+
+		  Known Issues
+
+		  Currently (for whatever reason) the first time I attempt to edit
+		  an entry I get garbage characters.. If I delete them and then
+		  attempt to re edit the same entry.  They do not reapper.  I'm
+		  afraid this will cause segfaults for you guys.  I'm actively
+		  pursuing this bug.
+
+		  Case handling is currently poor.  IE, what if you try to edit
+		  before you've opened a diary.  Or, what if you try to save before
+		  opening a diary.  I'm pretty sure both of these cases will cause
+		  the program to die.  I will get them fixed so just gimme a bit to
+		  fix them.
+
+		  About is still no clearing.  I'm gonna try to fix that too ASAP.
+
+		  TODO	  Better Case handling	  Fix About	  Integrate
+		  preferences	Create a Preferences form.. yeesh	and much
+		  much more!
+
+		  For the most part its a working ui.  It still has limited
+		  functionality and it isn't terribly smart.  So work with me.
+
+		  Enjoy!
+
+	2004-03-04 22:11  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: Made more changes
+
+		  you can save!
+
+		  you can add entries!
+
+		  you can quit and be asked to save!
+
+		  you can scroll in any of the submenus!
+
+		  you can stay in the submenus until you press q!
+
+		  you can read the code to find other surprises!
+
+	2004-03-03 21:34  andrewm1
+
+		* CREDITS:
+
+		  Sadly, Malte has not shown up in almost A Month... I removed him
+		  from the Core Team and Sourceforge Project.
+
+	2004-03-03 19:13  thestarz
+
+		* text_ui.c, text_ui.h: When Ian commited a little while ago, he
+		  left out the #endifS, hence BREAKING CVS. Andrew has given me
+		  permission to commit a fix.
+
+		  Ian: In future please make sure your code BUILDS before you
+		  COMMIT.
+
+	2004-03-03 18:34  deadalien
+
+		* TODO, text_ui.c, text_ui.h:
+		  added the #ifdefs
+
+		  made a note that joe's ncurses ui already takes care of asking
+		  the user to open a file.
+
+	2004-03-02 11:04  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: Added ifdefs for new build model
+
+	2004-03-02 10:06  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: !!!!!Major Overhaul of code...!!!!!
+
+		  ABSTRACT:
+
+		  The ncurses_ui which is now known henceforth as nci, was straying
+		  too far from the gtk look and feel.  This was my first attempt at
+		  ncurses programming.. so a redesign was definitely in order.
+		  Many of the functions I had created are still useful and I
+		  haven't yet removed/modified them.  But give the nci a look, I
+		  hope the changes are satifactory.  Let me know if it .. you know
+		  segfaults right off the bat ;P
+
+		  CHANGES/ADDITIONS:
+
+		  New main menu    Diary Entry Help Quit
+
+	    	 New Diary submenu
+			 New Open Save Quit
+
+	    	 New Entry submenu
+			 Add Edit View Delete Rename
+
+	    	 New Help sub menu
+			 About
+
+		  Currently user can only open diary and display help.
+
+		  Have builtin (rudimentary) buffer overflow support.  If the
+		  filename the user enters is longer than 80 chars.. the program
+		  punts and asks for a valid file name.  Right now it just loops
+		  forever until a filename less than 80 chars is inputted
+
+		  New struct.
+
+		  struct nci
+
+		  This was needed because I found that the only way to break this
+		  program apart was to be sending a MENU, ITEM, WINDOW, diary, and
+		  other variables in each function.  Decided that lonnnnng
+		  functions weren't pretty.  Made a struct and now I pass it.
+		  Hopefully it won't make the nci code tooo difficult to
+		  understand.  Currently using one nci struct.. declared it
+		  statically.  Created a nci_new() function in case anyone wanted
+		  to use it dynamically.
+
+		  Many function prototypes have changed with the overhaul.
+
+		  Considering adding a couple #defines for footer and header
+		  messages... browse the code you'll see.. if you don't look for:
+		  DIARY OPTIONS - [N]ew [O]pen [S]ave [Q]uit
+
+		  More work to follow, like more functionality.
+
+	2004-03-01 12:46  thestarz
+
+		* TODO, build.pl: I've fixed the build script to rebuild if any of
+		  the headers have been modified.
+
+		  I've also added the params '-h', '--help' and '-help' to do the
+		  same as 'help'.  Should be more user friendly now.
+
+	2004-03-01 09:42  thestarz
+
+		* TODO, build.pl, gtk_ui_callbacks.c, gtk_ui_callbacks.h,
+		  gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.c, gtk_ui_other.h,
+		  main.c, main.h: I've added the #ifdefS for configurable building
+		  to main* and gtk_ui*. You can now use the --without-gtk-ui arg on
+		  build.pl to leave out gtk. Once Ian adds #ifdefS to text_ui* and
+		  Joe adds them to ncurses_ui* we'll be all set.
+
+		  PS. It builds FAST without gtk. ;-)
+
+	2004-02-29 21:15  thestarz
+
+		* TODO: minor updates
+
+	2004-02-29 20:46  andrewm1
+
+		* build.pl: Added Comment with Credits
+
+	2004-02-29 19:47  andrewm1
+
+		* INSTALL, Makefile, build.pl:
+
+		  Put in John's New Build System
+
+	2004-02-29 19:06  andrewm1
+
+		* HACKING, TODO:
+
+		  Added File TODO as a "General Cire File". Anyone can knock things
+		  off / Add things.
+
+	2004-02-29 15:53  thestarz
+
+		* diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_callbacks.h,
+		  gtk_ui_main.c, gtk_ui_main.h: Added diary_export_html() to the
+		  diary module. It exports the diary to a file in html. Right now
+		  it generates rather a rather ugly web page. Andrew, since your
+		  our html expert, maybe you could create an example of how an
+		  exported diary should look in html, for me to go on?
+
+		  Changed the gtk interface to be able to use the new export code.
+		  I've created a tools menu with a sub-menu called export. It will
+		  ultimatly have a button for every format we can export to. Right
+		  now that's just html. I also moved the preferences button to the
+		  new tools menu.
+
+		  NOTE: The diary_export_html() method (and probably any future
+		  export methods) use prefs_get_timef() to know how to format
+		  timestamps. It's important that any ui's that want to call it
+		  first initialize the prefs module with prefs_init().
+
+	2004-02-29 12:15  thestarz
+
+		* diary.c, diary.h, entry.c, entry.h: Automagically reformated
+		  indenting in the diary and entry files to use only tabs, instead
+		  of a random mix of tabs and spaces. This was long overdue.
+
+		  Changed 'char*' to 'const char*' where appropriate in the diary
+		  and entry files. This introduces some warnings in other parts of
+		  cire that will need to be resolved, but they don't break
+		  anything.
+
+		  Removed the backwards compatability #defineS for
+		  diary_get_title() and diary_set_title(). They were no longer
+		  nessessary.
+
+	2004-02-29 10:42  thestarz
+
+		* gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.c: Added a menu
+		  separator bar above and below 'preferences'.	Entry titles longer
+		  than 20 characters are now truncated, with '...' appended before
+		  they are displayed in the tree view.
+
+	2004-02-28 19:01  deadalien
+
+		* prefs.c, prefs.h:
+		  prefs_set_whatever(char * string); is now:
+
+		  prefs_set_whatever(const char * string);
+
+		  this fixes the annoying compilation warnings.
+
+	2004-02-28 18:21  deadalien
+
+		* prefs.c, prefs.h:
+		  prefs_save_to_file is now prefs_save(); it remains #define'd in
+		  prefs.h until any ui code has been resolved
+
+		  put a warning in ~/.cirerc about it being overwritten on
+		  prefs_save()
+
+		  started checking for which preferences actually need to be saved
+		  to the file, e.g. a pref gotten from env needn't / shouldn't be
+		  written to file, so it isn't.
+
+	2004-02-28 16:35  thestarz
+
+		* gtk_ui_main.c, gtk_ui_main.h: You can now change the width of the
+		  tree view containing the list of entries.
+
+	2004-02-27 21:00  deadalien
+
+		* prefs.c: made a typo in the last commit, damnit
+
+	2004-02-27 20:56  deadalien
+
+		* prefs.c:
+		  fixed the bug(s) john pointed out (applied his patch).  Sorry
+		  about that guys :)  I did that fix in sort of a hurry.
+
+	2004-02-27 16:32  joeabbey
+
+		* ncurses_ui.c: Well here's a small addition.  Ncurses now employs
+		  the time function, at least for the menu.
+
+		  Look for more updates in the near future.  Gonna try to get that
+		  file stuff that you guys have agreed on.  (file stuffs = asking
+		  user to open the diary)
+
+		  Also did some cosmetics.  Now regardless of how much large the
+		  terminal is than 80x24 the header and footer extends.
+
+		  Let me know of any segfaults
+
+Cire Version 0.12.0:
+
+	2004-02-26 22:43  andrewm1
+
+		* README:
+
+		  Forgot To Update Known Issues :-D
+
+	2004-02-26 22:34  andrewm1
+
+		* CHANGES, main.h:
+
+			  0.12.0:
+					  -Added HACKING file with info on
+		  Contributing to the Project.
+					  -GTK UI is actually Usable now! (Even Has
+		  Prefs Dialouge)
+					  -John added some Keyboard Shortcuts to
+		  GTK UI
+					   (Alt-* for Menu Dropdowns)
+					  -Ian made some Minor Fixes to the Prefs
+		  Code.
+					  -Ian Improved the Text UI
+
+	2004-02-25 20:30  deadalien
+
+		* prefs.c: cire_dirt defaults to /home/ian/ instead of just
+		  /home/ian, for gtk
+
+	2004-02-25 18:39  thestarz
+
+		* gtk_ui_main.c: Added mnemonic support to the gtk interface.
+
+	2004-02-25 16:01  thestarz
+
+		* gtk_ui_main.c: Set the prefs window to be modal and to be a child
+		  of the main window.
+
+	2004-02-25 15:27  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_main.h, gtk_ui_other.c, gtk_ui_other.h: Added code to the
+		  gtk interface to use Ian's prefs module.
+
+		  IAN: Can you change the default cire_dir from "/home/foobar" to
+		  /home/foobar/"? Without the trailing slash the gtk file selection
+		  dialog puts you in /home instead of in /home/foobar.
+
+	2004-02-25 12:26  thestarz
+
+		* gtk_ui_main.c: The text view used to edit entries now word-wraps.
+
+	2004-02-23 18:30  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_other.c,
+		  gtk_ui_other.h: Fixed the gtk interface so that when you add /
+		  modify and entry the diary is resorted so that it goes to it's
+		  proper place.
+
+	2004-02-23 12:00  thestarz
+
+		* diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_callbacks.h,
+		  gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.c, gtk_ui_other.h:
+		  Added a sort method to the diary module. Added code to the gtk
+		  interface to sort using the new code in diary.  Sorting by
+		  timestamp works fine, however there seems to be something wrong
+		  with sorting by title.
+
+	2004-02-22 14:09  deadalien
+
+		* text_ui.c:
+		  little changes.  Can now show selected entry's timestamp Better
+		  'select' dialog Cleaned up the exit prompts Don't ask to save
+		  unless the diary has been edited (hopefully)
+
+	2004-02-22 13:58  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_other.c,
+		  gtk_ui_other.h: Implemented entry->rename.
+
+	2004-02-22 11:00  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_main.h: Implemented entry->remove and the 'save entry'
+		  button. The gtk interface is now usable! :-)
+
+	2004-02-21 22:42  andrewm1
+
+		* HACKING:
+
+		  Changed FIleship Management List to be Listed in alphabetical
+		  order.
+
+	2004-02-21 21:18  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_other.c, gtk_ui_other.h: Now, when you click on an entry
+		  in the tree view, it's contents are put into the text view on the
+		  right.
+
+	2004-02-21 19:51  andrewm1
+
+		* COPYING, HACKING, README:
+
+		  Added File HACKING with info about Contributing, Removed File
+		  Management List from COPYING and placed it into HACKING, Changed
+		  Section 6 of README to "6: Contributors and Contributing" and
+		  Referenced HACKING from there.
+
+	2004-02-21 16:48  andrewm1
+
+		* Makefile: Fixed Miscapitalization in Makefile
+
+	2004-02-21 16:31  deadalien
+
+		* prefs.c, prefs.h: Minor fixes that john pointed out
+
+	2004-02-21 10:43  thestarz
+
+		* diary.c, diary.h: Proper newline (\n) fix. Instead of simply
+		  ignoring all newlines in the diary file it does the following:
+
+		  All newlines are removed from titles.  All newlines are removed
+		  from timestamps.  The first and last newlines (if found) are
+		  removed from the contents of entries, leaving ones added by the
+		  user for formatting purposes.
+
+Cire Version 0.11.0:
+
+	2004-02-20 23:25  andrewm1
+
+		* COPYING: Added Clause with Contact Details
+
+	2004-02-20 23:25  andrewm1
+
+		* main.h: Another Misspelling
+
+	2004-02-20 23:22  andrewm1
+
+		* main.h: Error in 0.11.0 - Forgot to Change CIRE_VERSION
+
+	2004-02-20 23:20  andrewm1
+
+		* CHANGES, README:
+
+			  Version 0.11.0:
+				  -John made many Improvements to the Diary code.
+				  -John also made many improvements to the GTK
+		  interface.
+				  -Ian fixed a prefs bug.
+				  -Ian made the Text Interface more "User Friendly"
+				  -2 Patches contributed by AndrewM were added to
+		  the Text UI.
+				  -TImestamps Improved by John
+				  -Joe made fixes and additions to the NCurses UI.
+
+	2004-02-20 23:17  joeabbey
+
+		* ncurses_ui.c: Fixed bug if $EDITOR hadn't been set.. oops
+
+		  I've got many more to find and fix
+
+	2004-02-20 23:00  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: With the recent debug of the core
+		  files I was able to get some constant results.  Good news:
+
+			  You can read and write diary entries via ncurses ui!
+
+		  TODO:   Add timestamp support, right now all I have is Timestamp
+		  in the location	 where the appropriate timestamp should be
+
+			  Make About message scrollable?  Currently it is too large
+		  to fit in the
+			  viewable area.. unless you make your terminal bigger than
+		  80x24
+
+			  Integrate preferences.
+
+			  Consider Sorting.  Should we have functions in the diary
+		  module that do	 sorting or should each ui concern itself
+		  with sorting.
+
+			  Clean up.  The code works but its messy.. again.  time to
+		  do some
+			  cleanup
+
+			  Bed.	Its late.  I have the whole weekend ahead of me.
+
+			  Enjoy the udpates!
+
+	2004-02-20 18:21  deadalien
+
+		* text_ui.c, text_ui.h:
+		  Text ui has andrew's prompt patch, and the ability to view an
+		  entry.  It looks like crap though because John strips all the
+		  newlines out of the file :)  (I'm not sure who's end to resolve
+		  that on yet)
+
+		  Ian.
+
+	2004-02-20 15:35  thestarz
+
+		* diary.c: Added code to read the timestamps from the file when you
+		  call diary_load_from_file().	Added code to save the timestamps
+		  to the file when you call diary_save_to_file().
+
+	2004-02-20 10:27  deadalien
+
+		* prefs.c: I fixed a bug John pointed out where I was possibly
+		  doing a bad strncpy.
+
+	2004-02-20 09:54  thestarz
+
+		* diary.c, gtk_ui_callbacks.c, gtk_ui_callbacks.h: Implemented
+		  entry->add.
+
+		  I fixed the bug that adds junk to the end of titles and contents
+		  of entries. It was in diary_load_from_file(). I was thinking that
+		  strncpy worked like strcpy and put a NULL after the stuff it
+		  copied. Upon closer inspection of the man page I discovered this:
+
+		  "The	strncpy()  function  is  similar,  except that not more
+		  than n bytes of src are copied. Thus, if there is no null byte
+		  among the first n bytes of src, the result will not be
+		  null-terminated."
+
+		  All I had to do was manually add the terminating NULL and the bug
+		  went away. :-)
+
+	2004-02-19 22:25  deadalien
+
+		* text_ui.c, text_ui.h:
+		  Andrew added an About dialog using John's CIRE_ABOUT_MSG
+
+		  \m/
+
+	2004-02-19 21:04  deadalien
+
+		* text_ui.c:
+		  OK, (sort of) new text ui.  I re-did the menu and added some
+		  status info so it's more "user-friendly."
+
+		  It still has bugs, but since i'm not fixing them at a super-man
+		  like rate, I figured I'd let you guys feed on this while i keep
+		  fixing/improving shit.
+
+		  Some things on my todo list are: - add a prefs dialog - allow
+		  user to view entry - try to figure out the garbage in entry
+		  titles - various fixes/ cleanups
+
+	2004-02-19 20:08  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_main.h, gtk_ui_other.c, gtk_ui_other.h, main.h:
+		  Implemented diary->new.  Improvements to diary->open, diary->save
+		  and diary->save as.  Got rid of diary->close. New does basically
+		  the same thing.  Instead of asking if you really want to quit, it
+		  asks if you want to save first.  All of the diary menu is now
+		  implemented! :-)
+
+	2004-02-19 19:12  deadalien
+
+		* prefs.c:
+		  fixed a problem where the pref would get set to the entire line
+		  in a file, instead of just the value in said file.
+
+	2004-02-19 17:31  andrewm1
+
+		* README: Changed Debugging Process to a much easier way the Does
+		  NOT involve editing the Makefile.
+
+	2004-02-19 17:28  andrewm1
+
+		* main.h: Changed About Message
+
+	2004-02-19 16:41  thestarz
+
+		* diary.c: Fixed a minor typo...
+
+	2004-02-19 15:51  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h: Implemented diary->save
+		  and diary->save as.
+
+	2004-02-19 13:59  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.c,
+		  gtk_ui_other.h: I've implemented the diary->open callback. You
+		  can now open a diary file and see the entries listed in the
+		  GtkTreeView.	I also added a function to popup an error dialog
+		  with a specifiable error message.
+
+	2004-02-18 14:51  thestarz
+
+		* diary.c, diary.h, entry.h, main.h: Diary objects no longer have
+		  titles. UIs may need to be updated accordingly, however I have
+		  created diary_set_title() and diary_get_title() as macros for the
+		  time being, so nothing will be broken by this.  I've #defineD
+		  CIRE_VERSION as "0.10.0" in main.h. Andrew will need to update
+		  this whenever he makes a release.  I've modified the format for
+		  diary files slightly. They no longer begin with <cire-diary> and
+		  end with </cire-diary>. These were unneccesary and, indeed, werer
+		  ignored by the diary parsing code anyway. Instead diary files
+		  will begin with: "This is a Cire diary file. It was created by
+		  Cire vn.n.n", however the diary parsing code will not require
+		  this to be present. It's strictly optional, and only there for
+		  the benefit of human readers.  I've also gone over the diary code
+		  and fixed some things. Hopefully the UI programmers won't have
+		  anymore problems with it. ;-)
+
+Cire Version 0.10.0:
+
+	2004-02-17 22:42  andrewm1
+
+		* CHANGES:
+
+		  Releasing Version 0.10.0: Changes:
+
+				  -Ian added a New Text-Based Interface
+				  -John fixed the diary_free Crash.
+				  -Ian Rewrote the Prefs Module
+				  -First Release to Be Made through the SF File
+		  Release System
+				  -Joe Fixed up the NCurses Interface.
+				  -John Improved the GTK Interface.
+
+	2004-02-17 22:31  andrewm1
+
+		* COPYING, prefs.c, prefs.h, text_ui.c, text_ui.h:
+
+		  Officially Gave OwnerShip on the Text UI files to Ian. Also Fixed
+		  Ownership for Prefs Files.
+
+	2004-02-17 17:44  thestarz
+
+		* diary.c: Fixed diary_free(). It no longer segfaults.
+
+	2004-02-17 17:31  deadalien
+
+		* text_ui.c: fixes segfault on New
+
+	2004-02-17 17:20  deadalien
+
+		* Makefile, main.c, main.h, text_ui.c, text_ui.h: adding text_ui
+
+	2004-02-17 16:48  thestarz
+
+		* diary.c, diary.h, gtk_ui_callbacks.c, gtk_ui_other.c,
+		  gtk_ui_other.h: I've added a function to the diary modules to see
+		  if the diary is empty or not.
+
+		  I've changed confirm_quit() to ask_question_via_dialog(). It now
+		  asks a specifiable question instead of always asking the same
+		  thing, thus making it more reusable.
+
+		  I've added a function to ask the user for a filename using a
+		  GtkFileSelection dialog. This will eventually be used by
+		  diary->open and diary->save as.
+
+	2004-02-17 16:05  deadalien
+
+		* prefs.c, prefs.h:
+		  Total Prefs rewrite.
+
+		  Supported Preferences:     char * editor;	 to edit with
+		  char * cire_dir;    dir to save diaries in	 char * timef;
+		   user's preferred time display format
+
+		  See the bottom of prefs.h for the set/get function calls and how
+		  to use them.
+
+		  Basic Usage:	   In your initialization steps, call:
+		  prefs_init(argc, argv);     Then call your set/gets as you need.
+	    	  To cleanup just call: prefs_free();
+
+	    	  Email me with any questions :)
+
+	2004-02-17 13:01  thestarz
+
+		* gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.h, main.h:
+		  I've #defined CIRE_ABOUT_MESSAGE in main.h to be a string
+		  containing an about message for cire. I've added code to the gtk
+		  interface to open an about dialog containing this message when
+		  you click on help->about.
+
+	2004-02-17 00:40  andrewm1
+
+		* Makefile:
+
+		  Default For Makefile should be Debugging OFF.
+
+	2004-02-17 00:38  joeabbey
+
+		* ncurses_ui.c: shouldn't segfault immediately for users
+
+		  TODO	  -if diary title is NULL set it to something	     to
+		  prevent segfaults
+
+	2004-02-17 00:11  andrewm1
+
+		* Makefile, README:
+
+		  My Original Way to allow debugging didn't work, so I just added a
+		  bunch of comments to the Makefile about how to enable Debugging
+		  mode by Changing the CC Variable, and noted it in the readme.
+		  Only Developers should be Debugging anyways...
+
+	2004-02-16 23:58  joeabbey
+
+		* ncurses_ui.c: minor tweaks
+
+	2004-02-16 23:25  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: About now works properly Also now we
+		  have persistent data! If you add an entry it remains next time
+		  you open!
+
+		  TODO: 	  -READ DIARY!	  -entry management?
+		  -implement Preferences  -implement Sorting	  -timestamps
+
+	2004-02-16 22:58  joeabbey
+
+		* ncurses_ui.c: Write works! as long as your title is fewer than 80
+		  characters
+
+		   TODO:
+			  -Need to do error checking with that
+			  -Find a way to READ entries
+
+	2004-02-16 22:38  andrewm1
+
+		* Makefile, README:
+
+		  Changed Makefile to Enable Easy Debugging (make -DDEBUG_MODE).
+		  Added it to the Tips and Tricks Section of the README.
+
+	2004-02-16 20:22  joeabbey
+
+		* ncurses_ui.c, ncurses_ui.h: Changes	 -compiles now TODO
+		  -segfaults left and right    -get it to work
+
+	2004-02-16 19:56  joeabbey
+
+		* ncurses_ui.h: Testing ncurses_ui.h unfortunately this will cause
+		  compile errors.. I should have this fixed prior to anyone
+		  checking out the newest verions.  Or at least I hope.
+
+		  Cheers!
+
+	2004-02-16 19:00  andrewm1
+
+		* CHANGES, COPYING, CREDITS, INSTALL, Makefile, README, diary.c,
+		  diary.h, entry.c, entry.h, gtk_ui_callbacks.c,
+		  gtk_ui_callbacks.h, gtk_ui_main.c, gtk_ui_main.h, gtk_ui_other.c,
+		  gtk_ui_other.h, main.c, main.h, ncurses_ui.c, ncurses_ui.h,
+		  prefs.c, prefs.h:
+
+		  0.9.1 - Changes this Version:   -John Inproved GTK Interface, and
+		  applied fix for time code.	-John Split the GTK Code into 3
+		  files.	  -John, Ian, and Joe now have commit access.
+		  -New File "Ownership" System (See COPYING).	  -Now Using Task
+		  Manager to Organize Ourselves.
+
+	2004-02-16 17:18  thestarz
+
+		* Makefile, entry.c, entry.h, gtk_ui.c, gtk_ui.h,
+		  gtk_ui_callbacks.c, gtk_ui_callbacks.h, gtk_ui_main.c,
+		  gtk_ui_main.h, gtk_ui_other.c, gtk_ui_other.h, main.h: I've added
+		  to the gtk ui code. I've fixed entry_get_timef(). I've split the
+		  gtk code into three file pairs.
+
+	2004-02-15 22:33  thestarz
+
+		* gtk_ui.c: Ian has given me a patch to prevent the menu bar and
+		  the 'save entry' button from expanding when you resize the
+		  window. Thanks, Ian.
+
+	2004-02-15 21:20  andrewm1
+
+		* CREDITS:
+
+		  Ian, Joe and John now have Commit Access.
+
+Cire Version 0.9.0:
+
+	2004-02-15 19:03  andrewm1
+
+		* CHANGES, INSTALL, Makefile, buildcire.sh, cleancire.sh, diary.c,
+		  diary.h, entry.c, entry.h, gtk_ui.c, gtk_ui.h, installcire.sh,
+		  main.c, main.h, ncurses_ui.c, ncurses_ui.h, prefs.c, prefs.h:
+
+		  0.9.0: Changes this Version:		  -Basic GTK interface by
+		  John		  -File Reorganization, No more dumb *cire.sh
+		  scripts!
+
+Cire Version 0.8.2:
+
+	2004-02-11 21:21  andrewm1
+
+		* CHANGES:
+
+		  0.8.2: Changes Made this Version:		  -Very Rough
+		  NCurses Ui by Joe & John	      -Prefs Patch by Ian
+	    	-John sent in a patch to fix the time functions.
+
+Cire Version 0.8.1:
+
+	2004-02-09 22:15  andrewm1
+
+		* CHANGES, README:
+
+		  0.8.1: Added Bin Directory, Added Newline Patch, Added file
+		  CHANGES for ChangeLog.
+
+Cire Version 0.8.0:
+
+	2004-02-09 21:23  andrewm1
+
+		* COPYING, CREDITS, INSTALL, README, buildcire.sh, cleancire.sh,
+		  installcire.sh: 0.8.0: Initial Import.
+
+	2004-02-09 21:23  andrewm1
+
+		* COPYING, CREDITS, INSTALL, README, buildcire.sh, cleancire.sh,
+		  installcire.sh: Initial revision
